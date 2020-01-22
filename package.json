@@ -1,0 +1,20 @@
+{
+  "name": "selestine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch app/scss/style.scss -o app/style"
+  },
+  "author": "Potiichuk Yevheniia",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-server-livereload": "^1.9.2"
+  },
+  "dependencies": {
+    "node-sass": "^4.12.0",
+    "normalize.css": "^8.0.1"
+  }
+}

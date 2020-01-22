@@ -1,0 +1,117 @@
+.banner__wrapper {
+    height: em(700px);
+    background-color: $light-gray;
+    margin-bottom: em(55px);
+
+    .banner {
+        @include container;
+        height: 100%;
+        position: relative;
+
+        img {
+            @include size(100%, 100%);
+            object-fit: cover;
+        }
+        
+        .content {
+            width: 57.3%;
+            padding: em(55px);
+            position: absolute;
+            left: 50%;
+            bottom: em(-55px);
+            transform: translate(-50%);
+            box-sizing: border-box;
+            
+            background-color: $white;
+
+            .info {
+                display: flex;
+                justify-content: center;
+                align-items: baseline;
+            }
+    
+            .date {
+                @include font-date;
+                padding-left: 15px;
+            }
+    
+            .category {
+                margin: 0;
+                padding-right: 15px;
+                border-right: 1px solid $gray;
+    
+                a {
+                    @include reset-link;
+                    @include font-category;
+                }
+            }
+    
+            .title {
+                @include font-title($font-size--m);
+                margin: em(10px, $font-size--m) 0;
+                text-align: center;
+                line-height: 1.2;
+            }
+        }
+    }
+}
+
+.content-text {
+    @include container;
+    padding: em(50px) 0;
+
+    p {
+        font-family: $font-primary;
+        font-size: em(16px);
+        color: $black;
+        line-height: 1.5;
+        letter-spacing: 1px;
+    
+    }
+    .strong {
+        font-weight: 700;
+    }
+
+    &--right p{
+        width: 50%;
+        margin: em(30px) 0 0 auto;
+    }
+
+   
+}
+
+.content-img {
+    height: em(600px);
+    @include container;
+
+    &--one {
+
+        img {
+            @include size(100%, 100%);
+            object-fit: cover;
+        }
+    }
+
+    &--two {
+        @extend %flex-sb;
+
+        img {
+            @include size(48%, 100%);
+            object-fit: cover;
+        }
+    }
+}
+
+.share {
+    @include container;
+    @extend %flex-sb;
+    margin-top: em(30px);
+
+    .hashtag {
+        font-family: $font-primary;
+        font-size: em(16px);
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+}

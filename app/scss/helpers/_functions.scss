@@ -1,0 +1,11 @@
+@function parse-int($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+@function em($pixels, $font-size: $font-size--base) {
+    @return (parse-int($pixels) / parse-int($font-size)) * 1em;
+}
+

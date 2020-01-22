@@ -1,0 +1,10 @@
+.btn {
+    @include reset-button;
+    @include font-button;
+}
+
+.blog-post__link {
+    @include reset-link;
+    display: block;
+    cursor: pointer;
+}

@@ -1,0 +1,102 @@
+//Fonts
+
+@mixin font-title($font-size) {
+    font-family: $font-title;
+    font-size: em($font-size);
+    color: $black;
+}
+
+@mixin font-category {
+    font-family: $font-primary;
+    font-size: em($font-size--xs);
+    color: $blue;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@mixin font-navigation {
+    font-family: $font-primary;
+    font-size: em($font-size--xs);
+    color: $black;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@mixin font-date {
+    font-family: $font-primary;
+    font-size: em($font-size--xs);
+    color: $black;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@mixin font-button {
+    font-family: $font-primary;
+    font-size: em($font-size--xs);
+    color: $dark-gray;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+@mixin font-logo {
+    font-family: "Tuesday-night", sans-serif;
+    font-size: em(100px);
+    color: $black;
+    text-align: center;
+}
+
+//Size
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin container {
+    max-width: 1170px;
+    width: 78%;
+    margin: 0 auto;
+}
+
+//Reset styles
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin reset-link {
+    color: $black;
+    text-decoration: none;
+}
+
+@mixin reset-button {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+@mixin horizontal-list {
+    @include reset-list;
+    display: flex;
+}
+
+//Media Queries
+@mixin phone-portrait {
+    @media (max-width: 399px) { @content; }
+  }
+@mixin phone-landscape{
+    @media (max-width: 699px) { @content; }
+  }
+@mixin tablet-portrait {
+    @media (max-width: 899px) { @content; }
+}
+@mixin tablet-landscape {
+    @media (max-width: 1199px) { @content; }
+}
+@mixin desktop {
+    @media (max-width: 1599px) { @content; }
+}

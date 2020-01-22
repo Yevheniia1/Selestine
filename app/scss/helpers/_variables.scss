@@ -1,0 +1,33 @@
+//Colors
+
+$white: #ffffff;
+$black: #000000;
+$blue: #0000ff;
+$gray: #cccccc;
+$dark-gray: #555555;
+$light-gray: #f3f3f3;
+
+
+//Fonts
+
+$font-title: "DM Serif Text", serif; 
+$font-primary: "DM Sans", sans-serif;
+$font-size--xxl: 60px;
+$font-size--xl: 48px;
+$font-size--l: 40px;
+$font-size--m: 36px;
+$font-size--s: 22px;
+$font-size--xs: 12px;
+
+$font-size--base: $font-size--s;
+
+// Border
+
+$border--light-gray: 1px solid $light-gray;
+$border--gray: 1px solid $gray;
+$border--dark-gray: 1px solid $dark-gray;
+
+//Size
+$height--xs: 370px;
+$height--s: 600px;
+$height--m: 700px;

@@ -1,0 +1,27 @@
+body {
+    font-size: $font-size--base;
+    margin: 0;
+
+    @include desktop {
+		font-size: 20px;
+	}
+
+	@include tablet-landscape {
+		font-size: 18px;
+	}
+
+	@include tablet-portrait {
+		font-size: 15px;
+	}
+
+	@include phone-landscape{
+		font-size: 12px;
+	}
+
+	@include phone-portrait {
+		font-size: 10px;
+	}
+}
+
+
+
