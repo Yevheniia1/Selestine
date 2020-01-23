@@ -1,7 +1,8 @@
 $slider-control-btn-size: 4.6em; 
 
 .slider {
-	min-height: em($height--s);
+    min-height: em($height--s);
+    height: em($height--m);
 
 	display: flex;
 	position: relative;
@@ -46,17 +47,19 @@ $slider-control-btn-size: 4.6em;
 
             .category {
                 margin: 0;
-                padding-right: 15px;
 
                 a {
                     @include reset-link;
                     @include font-category;
+                    padding-right: em(15px);
                 }
             }
 
             .date {
                 @include font-date;
-                padding-left: 15px;
+                padding-left: em(15px);
+
+                border-left: $border--light-gray;
             }
 
             .button--continue {
@@ -89,7 +92,11 @@ $slider-control-btn-size: 4.6em;
 
 .slider--header {
     @include container;
-    height: em($height--m);
+    // height: em($height--m);
+
+    // @include desktop {
+    //     height: em($height--s);
+    // }
 
     background-color: $white;
 
@@ -171,15 +178,6 @@ $slider-control-btn-size: 4.6em;
 
             @include phone-landscape {
                 padding: em(20px) em(30px) 0;
-            }
-
-            .category {
-                border-right: $border--light-gray;
-            }
-
-            .date {
-                @include font-date;
-                padding-left: 15px;
             }
             
             .title {
@@ -286,17 +284,18 @@ $slider-control-btn-size: 4.6em;
                }
 
                 .date {
+                    border-left: $border--gray;
 
-                        @include phone-landscape {
-                            padding-left: 0;
-                        }
+                    @include phone-landscape {
+                        padding-left: 0;
+                        border: none;
+                    }
                 }
                 
                 .category {
-                    border-right: $border--gray;
 
                     @include phone-landscape {
-                        border: none
+                        padding-right: 0;
                     }
                 }
                 

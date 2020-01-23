@@ -64,10 +64,6 @@
         margin-top: em(80px);
     }
 
-    @include phone-landscape {
-        margin-top: em(50px);
-    }
-
     .latest__list {
         @include horizontal-list;
         @include container;
@@ -106,10 +102,6 @@
             @include tablet-portrait {
                 height: em($height--xs) / 1.2;
             }
-
-            // @include phone-landscape {
-            //     max-height: $height--xs / 1.5;
-            // }
         }
 
         .content {
@@ -123,6 +115,10 @@
             z-index: 10;
 
             background-color: $white;
+
+            @include desktop {
+                padding: em(25px);
+            }
 
             @include tablet-portrait {
                 position: relative;
@@ -141,17 +137,18 @@
 
             .date {
                 @include font-date;
-                padding-left: 15px;
+                padding-left: em(15px);
+                
+                border-left: $border--light-gray;
             }
 
             .category {
                 margin: 0;
-                padding-right: 15px;
-                border-right: $border--light-gray;
 
                 a {
                     @include reset-link;
                     @include font-category;
+                    padding-right: em(15px);
                 }
             }
 
@@ -193,7 +190,7 @@
         margin-top: em(40px);
 
         display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows:  minmax(auto, max-content)  minmax(auto, max-content)  minmax(auto, max-content);
         grid-template-columns: 5.7fr 4.3fr;
         grid-gap: em(30px);
         grid-template-areas: 
@@ -202,11 +199,15 @@
         "video post-3";
 
         @include tablet-portrait {
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 2fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: minmax(em($height--s), max-content) minmax(auto, max-content);
             grid-template-areas: 
-            "video video video"
-            "post-1 post-2 post-3"
+            "video video"
+            "post-1 post-2";
+
+            article:nth-child(3) {
+                display: none;
+            }
         }
 
         @include phone-landscape {
@@ -223,6 +224,8 @@
                 grid-area: post-#{$num};
             }
         }
+            
+        
     }
 
     .blog-post {
@@ -270,17 +273,16 @@
     
             .date {
                 @include font-date;
-                padding-left: 15px;
+                padding-left: em(15px);
 
                 @include tablet-portrait {
                     padding-left: 0;
+                    border-left: $border--light-gray;
                 }
             }
     
             .category {
                 margin: 0;
-                padding-right: 15px;
-                border-right: 1px solid $gray;
 
                 @include tablet-portrait {
                     border: none;
@@ -289,6 +291,7 @@
                 a {
                     @include reset-link;
                     @include font-category;
+                    padding-right: em(15px);
                 }
             }
     
@@ -336,6 +339,15 @@
             
             background-color: $white;
 
+            @include desktop {
+                width: 68%;
+            }
+
+            @include tablet-landscape{
+                border-left: $border--gray;
+                border-bottom: $border--gray;
+            }
+
             @include tablet-portrait {
                 width: 80%;
                 padding: em(45px) 0;
@@ -349,17 +361,17 @@
     
             .date {
                 @include font-date;
-                padding-left: 15px;
+                padding-left: em(15px);
+                border-left: $border--gray;
             }
     
             .category {
                 margin: 0;
-                padding-right: 15px;
-                border-right: $border--gray;
     
                 a {
                     @include reset-link;
                     @include font-category;
+                    padding-right: em(15px);
                 }
             }
     
@@ -415,29 +427,33 @@
             }
         }
 
-        @each $num in (2, 3, 4, 5) {
+        // @each $num in (2, 3, 4, 5) {
 
-            @include phone-landscape{
+        //     @include phone-landscape{
 
-                li:nth-child(#{$num}){ 
+        //         li:nth-child(#{$num}){ 
 
-                    .content {
-                        position: static;
-                        padding-bottom: 0;
-                    }
+        //             .content {
+        //                 position: static;
+        //                 padding-bottom: 0;
+        //             }
 
-                    .blog-post {
-                        margin-bottom: 0;
-                    }
-                }
-            }
-        }
+        //             .blog-post {
+        //                 margin-bottom: 0;
+        //             }
+        //         }
+        //     }
+        // }
     }
 
     .blog-post {
         @include size(100%, 100%);
         margin-bottom: em(80px);
         position: relative;
+
+        @include tablet-landscape {
+            margin-bottom: em(120px);
+        }
 
         img {
             @include size(100%, em($height--s));
@@ -449,29 +465,40 @@
         }
 
         .content {
-            $position-left: 50px;
-
-            @include tablet-portrait{
-                $position-left: 35px;
-            }
-
-            @include phone-landscape {
-                $position-left: 20px;
-            }
-
-            @include phone-portrait {
-                $position-left: 15px;
-            }
-
-            width: calc(100% - $position-left);
+            width: calc(100% - 50px);
             padding: em(35px);
             box-sizing: border-box;
 
             position: absolute;
-            left: $position-left;
+            left: 50px;
             bottom: em(-80px);
             
             background-color: $white;
+
+            @include tablet-landscape{
+                padding: em(30px);
+                border-left: $border--gray;
+                border-bottom: $border--gray;
+                bottom: em(-100px);
+            }
+
+            @include tablet-portrait{
+                padding: em(25px) em(30px);
+                width: calc(100% - 35px);
+                left: 35px;
+            }
+
+            @include phone-landscape {
+                padding: em(20px) em(30px);
+                width: calc(100% - 20px);
+                left: 20px;
+            }
+
+            @include phone-portrait {
+                padding: em(15px) em(30px);
+                width: calc(100% - 15px);
+                left: 15px;
+            }
 
             .info {
                 display: flex;
@@ -484,7 +511,8 @@
     
             .date {
                 @include font-date;
-                padding-left: 15px;
+                padding-left: em(15px);
+                border-left: $border--light-gray;
 
                 @include tablet-portrait {
                     padding-left: 0;
@@ -493,8 +521,6 @@
     
             .category {
                 margin: 0;
-                padding-right: 15px;
-                border-right: 1px solid $gray;
 
                 @include tablet-portrait {
                     border: none;
@@ -503,12 +529,17 @@
                 a {
                     @include reset-link;
                     @include font-category;
+                    padding-right: em(15px);
                 }
             }
     
             .title {
                 @include font-title($font-size--s);
                 margin: em(15px, $font-size--s) 0;
+
+                @include tablet-landscape {
+                    font-size: em($font-size--m);
+                }
             }
         }
     }
@@ -520,6 +551,10 @@
     min-height: em(450px);
     margin-top: $img-height / 2 + em(50px);
     background-color: $black;
+
+    @include tablet-landscape {
+        min-height: em($height--xs);
+    }
 
     .instagram-imgs {
         @include horizontal-list;
