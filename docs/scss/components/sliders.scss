@@ -35,7 +35,7 @@ $slider-control-btn-size: 4.6em;
     }
 
     .blog-post {
-        width: 100%;
+       @include size(100%, 100%);
 
         .content {
 
@@ -66,6 +66,14 @@ $slider-control-btn-size: 4.6em;
                 line-height: 4;
 
                 border: $border--gray;
+
+                @include phone-landscape {
+                    width: 60%;
+                }
+
+                @include phone-portrait {
+                    width: 70%;
+                }
             }
         }
 
@@ -81,7 +89,7 @@ $slider-control-btn-size: 4.6em;
 
 .slider--header {
     @include container;
-    min-height: em(700px);
+    height: em($height--m);
 
     background-color: $white;
 
@@ -148,15 +156,21 @@ $slider-control-btn-size: 4.6em;
              background-color: $white;
 
              @include desktop {
-                 padding: em(50px) em(40px) 0;
+                width: 70%;
+                 padding: em(40px) em(40px) 0;
              }
 
              @include tablet-landscape {
-                 width: 70%;
+                 width: 80%;
              }
 
              @include tablet-portrait {
+                padding: em(30px) em(30px) 0;
                 position: static;
+            }
+
+            @include phone-landscape {
+                padding: em(20px) em(30px) 0;
             }
 
             .category {
@@ -171,6 +185,18 @@ $slider-control-btn-size: 4.6em;
             .title {
                 @include font-title($font-size--l);
                 margin: em(35px, $font-size--l) 0;
+
+                @include desktop {
+                    margin: em(25px, $font-size--l) 0;
+                }
+
+                @include phone-landscape {
+                    margin: em(20px, $font-size--l) 0;
+                }
+
+                @include phone-portrait {
+                    margin: em(15px, $font-size--l) 0;
+                }
             }
         }
 
@@ -189,6 +215,10 @@ $slider-control-btn-size: 4.6em;
 
     background-color: $light-gray;
     overflow: hidden;
+
+    @include phone-landscape {
+        margin-top: em(150px);
+    }
 
     .slider__content {
         position: relative;
@@ -246,19 +276,42 @@ $slider-control-btn-size: 4.6em;
                 align-items: center;
 
                 background-color: $light-gray;
-                
-               .category {
-                   border-right: $border--gray;
-               }
-               
-               .title {
-                   margin: em(20px, $font-size--xl) 0;
+            
+               .info {
 
-                   @include font-title($font-size--xl);
-                   text-align: center;
+                    @include phone-landscape {
+                        flex-direction: column;
+                        align-items: center;
+                    }
                }
-           }
-   
+
+                .date {
+
+                        @include phone-landscape {
+                            padding-left: 0;
+                        }
+                }
+                
+                .category {
+                    border-right: $border--gray;
+
+                    @include phone-landscape {
+                        border: none
+                    }
+                }
+                
+                .title {
+                    margin: em(20px, $font-size--xl) 0;
+
+                    @include font-title($font-size--xl);
+                    text-align: center;
+
+                    @include tablet-portrait {
+                        @include font-title($font-size--l); 
+                    }
+                }
+            }
+    
            img {
                width: 48.7%;
            }

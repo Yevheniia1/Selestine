@@ -57,6 +57,10 @@
     max-width: 1170px;
     width: 78%;
     margin: 0 auto;
+
+    @include phone-landscape {
+        width: 100%;
+    }
 }
 
 //Reset styles

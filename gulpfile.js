@@ -5,7 +5,7 @@ let
 
 
 gulp.task('default', function() {
- gulp.src('./app')
+ gulp.src('./docs')
  .pipe(server({
 	 livereload:true,
 	 directoryListing:{

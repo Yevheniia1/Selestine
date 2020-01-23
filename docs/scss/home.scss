@@ -10,38 +10,78 @@
     }
 
     .navigation {
-
         border-top: $border--light-gray;
+
+        @include phone-portrait {
+            margin-bottom: em(20px);
+        }
 
         .list {
             @include horizontal-list;
             @include container;
             justify-content: center;
 
+            @include phone-portrait {
+                flex-wrap: wrap;
+            }
+
+            li {
+                @include phone-portrait {
+                    width: 33%;
+                    box-shadow: border-box;
+                }
+            }
+
             li a {
                 @include reset-link;
                 @include font-navigation;
                 padding: 0 em(25px, $font-size--xs);
                 line-height: 6.65;
+                display: block;
+
+                @include phone-portrait {
+                    text-align: center;
+                }
+
+                &:hover {
+                    background-color: $light-gray;
+                }
             }
+
+            li a.disabled {
+                background-color: $light-gray;
+                cursor: default;
+            }
+            
         }
     }
 } 
 
 .latest {
+    margin-top: em(100px);
+
+    @include tablet-portrait {
+        margin-top: em(80px);
+    }
+
+    @include phone-landscape {
+        margin-top: em(50px);
+    }
 
     .latest__list {
         @include horizontal-list;
         @include container;
-        margin-top: em(100px);
         
         @extend %flex-sb;
         flex-wrap: wrap; 
 
+        @include phone-landscape {
+            justify-content: space-around;
+        }
+
             li {
             margin-bottom: em(150px);
             width: 46.7%;
-            height: em($height--m);
 
             position: relative;
 
@@ -59,9 +99,17 @@
             @include size(100%, 100%);
             object-fit: cover;
 
-            @include tablet-portrait {
-                max-height: $height--xs / 1.5;
+            @include desktop {
+                height: em($height--xs);
             }
+
+            @include tablet-portrait {
+                height: em($height--xs) / 1.2;
+            }
+
+            // @include phone-landscape {
+            //     max-height: $height--xs / 1.5;
+            // }
         }
 
         .content {
@@ -134,6 +182,10 @@
         font-size: em(24px);
         font-weight: 700;
         color: $black;
+
+        @include phone-landscape {
+            width: 90%;
+        }
     } 
 
     .video__wrapper {
@@ -155,6 +207,10 @@
             grid-template-areas: 
             "video video video"
             "post-1 post-2 post-3"
+        }
+
+        @include phone-landscape {
+            width: 90%;
         }
 
         .video__content {
@@ -248,9 +304,21 @@
     @include container;
     margin-top: em(155px);
 
+    @include tablet-portrait {
+        margin-top: em(100px);
+    }
+
+    @include phone-landscape{
+        margin-top: em(55px);
+    }
+
     .blog-post {
         @include size(100%, em($height--s));
         position: relative;
+
+        @include phone-landscape{
+            height: em(450px);
+        }
 
         img {
             @include size(100%, 100%);
@@ -270,6 +338,7 @@
 
             @include tablet-portrait {
                 width: 80%;
+                padding: em(45px) 0;
             }
 
             .info {
@@ -315,19 +384,18 @@
 
     &__list {
         @include reset-list;
-        margin: em(65px) 0 em(80px);
+        margin: em(65px) 0 0;
 
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-column-gap: em(30px);
-        grid-row-gap: em(105px);
+        grid-gap: em(30px);
         grid-template-areas: 
         "post-1 post-1 post-2"
         "post-3 post-4 post-5";
 
-        @include tablet-portrait {
-            grid-template-rows: 1fr 1fr 1fr;
+        @include tablet-landscape {
+            grid-template-rows: minmax(auto, max-content) minmax(auto, min-content) minmax(auto, min-content);
             grid-template-columns: 1fr 1fr;
             grid-template-areas: 
             "post-1 post-1"
@@ -335,13 +403,33 @@
             "post-4 post-5";
         }
 
-        li {
-            height: em($height--xs);
+        @include phone-landscape{
+            margin-top: em(25px);
+            grid-row-gap:em(30);
         }
 
         @each $num in (1, 2, 3, 4, 5) {
+
             li:nth-child(#{$num}) {
                 grid-area: post-#{$num};
+            }
+        }
+
+        @each $num in (2, 3, 4, 5) {
+
+            @include phone-landscape{
+
+                li:nth-child(#{$num}){ 
+
+                    .content {
+                        position: static;
+                        padding-bottom: 0;
+                    }
+
+                    .blog-post {
+                        margin-bottom: 0;
+                    }
+                }
             }
         }
     }
@@ -352,17 +440,35 @@
         position: relative;
 
         img {
-            @include size(100%, 100%);
+            @include size(100%, em($height--s));
             object-fit: cover;
+
+            @include phone-landscape {
+                height: em($height--xs);
+            }
         }
 
         .content {
-            width: 95%;
+            $position-left: 50px;
+
+            @include tablet-portrait{
+                $position-left: 35px;
+            }
+
+            @include phone-landscape {
+                $position-left: 20px;
+            }
+
+            @include phone-portrait {
+                $position-left: 15px;
+            }
+
+            width: calc(100% - $position-left);
             padding: em(35px);
             box-sizing: border-box;
 
             position: absolute;
-            left: em(50px);
+            left: $position-left;
             bottom: em(-80px);
             
             background-color: $white;
@@ -370,17 +476,29 @@
             .info {
                 display: flex;
                 align-items: baseline;
+
+                @include tablet-portrait {
+                    flex-direction: column;
+                }
             }
     
             .date {
                 @include font-date;
                 padding-left: 15px;
+
+                @include tablet-portrait {
+                    padding-left: 0;
+                }
             }
     
             .category {
                 margin: 0;
                 padding-right: 15px;
                 border-right: 1px solid $gray;
+
+                @include tablet-portrait {
+                    border: none;
+                }
     
                 a {
                     @include reset-link;
@@ -397,8 +515,10 @@
 }
 
 .main-footer {
+    $img-height: em(235px);
+
     min-height: em(450px);
-    margin-top: em(310px);
+    margin-top: $img-height / 2 + em(50px);
     background-color: $black;
 
     .instagram-imgs {
@@ -407,13 +527,32 @@
         position: relative;
         transform: translateY(-50%);
 
+        @include phone-landscape {
+            width: 90%;
+        }
+
         li {
             width: 20%;
-            max-height: em(235px);
+            @include size(100%, $img-height);
+            overflow: hidden;
+
+            @include phone-landscape {
+                max-height: em(200px);
+            }
+
+            @include phone-portrait {
+                max-height: em(175px);
+            }
 
             a img {
                 @include size(100%, 100%);
                 object-fit: cover;
+                transition-duration: .3s;
+
+                &:hover {
+                    transform: scale(1.2);
+                    transition-duration: .3s;
+                }
             }
         }
     }
