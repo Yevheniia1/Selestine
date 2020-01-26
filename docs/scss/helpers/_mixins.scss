@@ -20,6 +20,10 @@
     color: $black;
     text-transform: uppercase;
     letter-spacing: 2px;
+
+    @include phone-portrait {
+        font-size: em($font-size--s);
+    }
 }
 
 @mixin font-date {

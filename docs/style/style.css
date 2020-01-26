@@ -92,6 +92,9 @@ body {
       display: block; }
       @media (max-width: 399px) {
         .main-header .navigation .list li a {
+          font-size: 1em; } }
+      @media (max-width: 399px) {
+        .main-header .navigation .list li a {
           text-align: center; } }
       .main-header .navigation .list li a:hover {
         background-color: #f3f3f3; }
