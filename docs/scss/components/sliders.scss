@@ -1,11 +1,7 @@
 $slider-control-btn-size: 4.6em; 
 
 .slider {
-    min-height: em($height--s);
-    height: em($height--m);
-
-	display: flex;
-	position: relative;
+    position: relative;
 
     .flickity-viewport {
         @include size(100%, 100%);
@@ -36,7 +32,8 @@ $slider-control-btn-size: 4.6em;
     }
 
     .blog-post {
-       @include size(100%, 100%);
+    //    @include size(100%, 100%);
+    width: 100%;
 
         .content {
 
@@ -92,12 +89,6 @@ $slider-control-btn-size: 4.6em;
 
 .slider--header {
     @include container;
-    // height: em($height--m);
-
-    // @include desktop {
-    //     height: em($height--s);
-    // }
-
     background-color: $white;
 
     .flickity-button {
@@ -152,12 +143,13 @@ $slider-control-btn-size: 4.6em;
     .blog-post {
 
          .content {
-             width: 50%;
+             width: calc(100% - 50px);
              padding: em(70px) em(60px) 0;
+             box-sizing: border-box;
              
-             position: absolute;
-             bottom: 0;
-             right: 0;
+             position: relative;
+             top: em(-50px);
+             right: -50px;
              z-index: 10;
 
              background-color: $white;
@@ -260,13 +252,15 @@ $slider-control-btn-size: 4.6em;
     .slider__content {
         @include container;
         padding-top: em(100px);
+        height: 100%;
 
         .blog-post {
-            height: 100%;
             display: flex;
+        
+            min-height: em($height--m);
 
             .content {
-                padding: 0 em(20px) $slider-control-btn-size;
+                padding: 0 em(20px) $slider-control-btn-size + 1em;
 
                 display: flex;
                 flex-direction: column;
@@ -312,7 +306,7 @@ $slider-control-btn-size: 4.6em;
             }
     
            img {
-               width: 48.7%;
+               @include size(48.7%, auto);
            }
         }
     }
