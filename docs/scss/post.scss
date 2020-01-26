@@ -24,6 +24,18 @@
             
             background-color: $white;
 
+            @include tablet-portrait {
+                width: 70%;
+            }
+
+            @include phone-landscape {
+                width: 80%;
+            }
+
+            @include phone-portrait {
+                width: 90%;
+            }
+
             .info {
                 display: flex;
                 justify-content: center;
@@ -60,24 +72,30 @@
     @include container;
     padding: em(50px) 0;
 
+    &--right p{
+        width: 50%;
+        margin-left: auto;
+    }
+
     p {
+        margin-top: em(30px);
         font-family: $font-primary;
-        font-size: em(16px);
+        font-size: 16px;
         color: $black;
         line-height: 1.5;
         letter-spacing: 1px;
+
+        @include phone-landscape {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.2em;
+        }
     
     }
     .strong {
         font-weight: 700;
     }
-
-    &--right p{
-        width: 50%;
-        margin: em(30px) 0 0 auto;
-    }
-
-   
 }
 
 .content-img {
@@ -105,7 +123,13 @@
 .share {
     @include container;
     @extend %flex-sb;
+    align-items: baseline;
     margin-top: em(30px);
+    
+    @include phone-landscape {
+        width: 90%;
+        flex-wrap: wrap;
+    }
 
     .hashtag {
         font-family: $font-primary;

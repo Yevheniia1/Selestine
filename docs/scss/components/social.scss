@@ -41,6 +41,10 @@ $icons-size: em(50px);
 
 .social--share {
         justify-content: flex-end;
+
+        @include phone-portrait {
+            justify-content: flex-start;
+        }
         
     li {
         background-color: $gray;

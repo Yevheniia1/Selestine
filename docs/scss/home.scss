@@ -5,8 +5,12 @@
     }
 
     .logo {
-        @include font-logo;
-        margin: 0;
+        @include reset-link;
+
+        p {
+            @include font-logo;
+            margin: 0;
+        }
     }
 
     .navigation {

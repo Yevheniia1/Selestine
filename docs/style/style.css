@@ -49,11 +49,14 @@ body {
   margin-top: 15px; }
 
 .main-header .logo {
-  font-family: "Tuesday-night", sans-serif;
-  font-size: 4.54545em;
   color: #000000;
-  text-align: center;
-  margin: 0; }
+  text-decoration: none; }
+  .main-header .logo p {
+    font-family: "Tuesday-night", sans-serif;
+    font-size: 4.54545em;
+    color: #000000;
+    text-align: center;
+    margin: 0; }
 
 .main-header .navigation {
   border-top: 1px solid #f3f3f3; }
@@ -846,6 +849,9 @@ body {
 
 .social--share {
   justify-content: flex-end; }
+  @media (max-width: 399px) {
+    .social--share {
+      justify-content: flex-start; } }
   .social--share li {
     background-color: #cccccc; }
 
@@ -875,6 +881,15 @@ body {
       transform: translate(-50%);
       box-sizing: border-box;
       background-color: #ffffff; }
+      @media (max-width: 899px) {
+        .banner__wrapper .banner .content {
+          width: 70%; } }
+      @media (max-width: 699px) {
+        .banner__wrapper .banner .content {
+          width: 80%; } }
+      @media (max-width: 399px) {
+        .banner__wrapper .banner .content {
+          width: 90%; } }
       .banner__wrapper .banner .content .info {
         display: flex;
         justify-content: center;
@@ -914,17 +929,24 @@ body {
   @media (max-width: 699px) {
     .content-text {
       width: 100%; } }
+  .content-text--right p {
+    width: 50%;
+    margin-left: auto; }
   .content-text p {
+    margin-top: 1.36364em;
     font-family: "DM Sans", sans-serif;
-    font-size: 0.72727em;
+    font-size: 16px;
     color: #000000;
     line-height: 1.5;
     letter-spacing: 1px; }
+    @media (max-width: 699px) {
+      .content-text p {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.2em; } }
   .content-text .strong {
     font-weight: 700; }
-  .content-text--right p {
-    width: 50%;
-    margin: 1.36364em 0 0 auto; }
 
 .content-img {
   height: 27.27273em;
@@ -947,10 +969,15 @@ body {
   max-width: 1170px;
   width: 78%;
   margin: 0 auto;
+  align-items: baseline;
   margin-top: 1.36364em; }
   @media (max-width: 699px) {
     .share {
       width: 100%; } }
+  @media (max-width: 699px) {
+    .share {
+      width: 90%;
+      flex-wrap: wrap; } }
   .share .hashtag {
     font-family: "DM Sans", sans-serif;
     font-size: 0.72727em;
