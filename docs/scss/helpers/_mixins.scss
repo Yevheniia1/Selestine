@@ -44,7 +44,7 @@
 }
 
 @mixin font-logo {
-    font-family: "Tuesday-night", sans-serif;
+    font-family: $font-logo;
     font-size: em(100px);
     color: $black;
     text-align: center;

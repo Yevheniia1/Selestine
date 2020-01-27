@@ -39,11 +39,49 @@ body {
       font-size: 10px; } }
 
 @font-face {
-  font-family: "Tuesday-night";
-  src: url("../fonts/TuesdayNight-Regular.woff"), url("../fonts/TuesdayNight-Regular.woff2");
+  font-family: 'Tuesday Night';
+  src: url("../fonts/TuesdayNight-Regular.eot");
+  src: url("../fonts/TuesdayNight-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/TuesdayNight-Regular.woff2") format("woff2"), url("../fonts/TuesdayNight-Regular.woff") format("woff"), url("../fonts/TuesdayNight-Regular.svg#Tuesday Night Regular") format("svg");
   font-weight: 400;
   font-style: normal;
-  font-stretch: normal; }
+  font-stretch: normal;
+  unicode-range: U+0020-007A; }
+
+@font-face {
+  font-family: 'DM Serif Text';
+  src: url("../fonts/DMSerifText-Regular.eot");
+  src: url("../fonts/DMSerifText-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/DMSerifText-Regular.woff2") format("woff2"), url("../fonts/DMSerifText-Regular.woff") format("woff"), url("../fonts/DMSerifText-Regular.svg#DM Serif Text Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2212; }
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url("../fonts/DMSans-Bold.eot");
+  src: url("../fonts/DMSans-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/DMSans-Bold.woff2") format("woff2"), url("../fonts/DMSans-Bold.woff") format("woff"), url("../fonts/DMSans-Bold.svg#DM Sans Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2212; }
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url("../fonts/DMSans-Regular.eot");
+  src: url("../fonts/DMSans-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/DMSans-Regular.woff2") format("woff2"), url("../fonts/DMSans-Regular.woff") format("woff"), url("../fonts/DMSans-Regular.svg#DM Sans Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2212; }
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url("../fonts/DMSans-Medium.eot");
+  src: url("../fonts/DMSans-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/DMSans-Medium.woff2") format("woff2"), url("../fonts/DMSans-Medium.woff") format("woff"), url("../fonts/DMSans-Medium.svg#DM Sans Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2212; }
 
 .main-header .social {
   margin-top: 15px; }
@@ -52,7 +90,7 @@ body {
   color: #000000;
   text-decoration: none; }
   .main-header .logo p {
-    font-family: "Tuesday-night", sans-serif;
+    font-family: "Tuesday Night", serif;
     font-size: 4.54545em;
     color: #000000;
     text-align: center;
