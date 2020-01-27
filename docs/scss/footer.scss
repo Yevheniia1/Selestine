@@ -1,0 +1,87 @@
+
+.main-footer {
+    $img-height: em(235px);
+
+    min-height: em(450px);
+    margin-top: $img-height / 2 + em(50px);
+    background-color: $black;
+
+    @include tablet-landscape {
+        min-height: em($height--xs);
+    }
+
+    .instagram-imgs {
+        @include horizontal-list;
+        @include container;
+        position: relative;
+        transform: translateY(-50%);
+
+        @include phone-landscape {
+            width: 90%;
+        }
+
+        li {
+            width: 20%;
+            @include size(100%, $img-height);
+            overflow: hidden;
+
+            @include phone-landscape {
+                max-height: em(200px);
+            }
+
+            @include phone-portrait {
+                max-height: em(175px);
+            }
+
+            a {
+                @include size(100%, 100%);
+                display: block;
+                position: relative;
+                background-color: $dark-gray;
+                transition-duration: 1s;
+
+                &:before {
+                    content: "";
+                    @extend %position-absolute-center;
+                    z-index: 10;
+
+                    @include font-logo;
+                    color: $black;
+                    font-size: em(40px);
+                    transition-duration: 1s;
+                }
+
+                &:hover {
+                    border-radius: 3px;
+
+                    &:before {
+                        content: "Instagram";
+                        transition-duration: 1s;
+                    }
+
+                    img {
+                        filter: blur(10px);
+                        transition-duration: 1s;
+                    }
+                }
+            }
+
+            a img {
+                @include size(100%, 100%);
+                object-fit: cover;
+                transition-duration: 1s;
+            }
+        }
+    }
+    
+    .copyright {
+        margin: em(30px) 0 0;
+        font-family: $font-primary;
+        font-size: em(14px);
+        color: $white;
+        text-align: center;
+    }
+}
+
+
+

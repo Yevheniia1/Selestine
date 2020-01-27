@@ -1,66 +1,3 @@
-.main-header {
-
-    .social {
-        margin-top: 15px;
-    }
-
-    .logo {
-        @include reset-link;
-
-        p {
-            @include font-logo;
-            margin: 0;
-        }
-    }
-
-    .navigation {
-        border-top: $border--light-gray;
-
-        @include phone-portrait {
-            margin-bottom: em(20px);
-        }
-
-        .list {
-            @include horizontal-list;
-            @include container;
-            justify-content: center;
-
-            @include phone-portrait {
-                flex-wrap: wrap;
-            }
-
-            li {
-                @include phone-portrait {
-                    width: 33%;
-                    box-shadow: border-box;
-                }
-            }
-
-            li a {
-                @include reset-link;
-                @include font-navigation;
-                padding: 0 em(25px, $font-size--xs);
-                line-height: 6.65;
-                display: block;
-
-                @include phone-portrait {
-                    text-align: center;
-                }
-
-                &:hover {
-                    background-color: $light-gray;
-                }
-            }
-
-            li a.disabled {
-                background-color: $light-gray;
-                cursor: default;
-            }
-            
-        }
-    }
-} 
-
 .latest {
     margin-top: em(50px);
 
@@ -159,6 +96,10 @@
             .title {
                 @include font-title($font-size--m);
                 margin: em(20px, $font-size--m) 0;
+
+                &:hover {
+                    
+                }
             }
         }
     }
@@ -548,62 +489,3 @@
         }
     }
 }
-
-.main-footer {
-    $img-height: em(235px);
-
-    min-height: em(450px);
-    margin-top: $img-height / 2 + em(50px);
-    background-color: $black;
-
-    @include tablet-landscape {
-        min-height: em($height--xs);
-    }
-
-    .instagram-imgs {
-        @include horizontal-list;
-        @include container;
-        position: relative;
-        transform: translateY(-50%);
-
-        @include phone-landscape {
-            width: 90%;
-        }
-
-        li {
-            width: 20%;
-            @include size(100%, $img-height);
-            overflow: hidden;
-
-            @include phone-landscape {
-                max-height: em(200px);
-            }
-
-            @include phone-portrait {
-                max-height: em(175px);
-            }
-
-            a img {
-                @include size(100%, 100%);
-                object-fit: cover;
-                transition-duration: .3s;
-
-                &:hover {
-                    transform: scale(1.2);
-                    transition-duration: .3s;
-                }
-            }
-        }
-    }
-    
-    .copyright {
-        margin: em(30px) 0 0;
-        font-family: $font-primary;
-        font-size: em(14px);
-        color: $white;
-        text-align: center;
-    }
-}
-
-
-

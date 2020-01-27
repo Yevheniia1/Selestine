@@ -32,7 +32,6 @@ $slider-control-btn-size: 4.6em;
     }
 
     .blog-post {
-    //    @include size(100%, 100%);
     width: 100%;
 
         .content {
@@ -61,11 +60,6 @@ $slider-control-btn-size: 4.6em;
 
             .button--continue {
                 width: 46.7%;
-
-                @include font-button;
-                line-height: 4;
-
-                border: $border--gray;
 
                 @include phone-landscape {
                     width: 60%;
@@ -188,13 +182,22 @@ $slider-control-btn-size: 4.6em;
                     margin: em(15px, $font-size--l) 0;
                 }
             }
+
+            .button--continue:before {
+                background-color: $light-gray;
+            }
         }
 
         img {
             width: 100%;
+            height: em($height--m);
+
+            @include desktop {
+                height: em($height--s);
+            }
 
             @include tablet-portrait {
-                max-height: em($height--xs);
+                height: em($height--xs);
             }
         }
     }
@@ -302,6 +305,10 @@ $slider-control-btn-size: 4.6em;
                     @include tablet-portrait {
                         @include font-title($font-size--l); 
                     }
+                }
+
+                .button--continue:before {
+                    background-color: $gray;
                 }
             }
     

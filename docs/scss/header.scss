@@ -1,0 +1,64 @@
+.main-header {
+
+    .social {
+        margin-top: 15px;
+    }
+
+    .logo {
+        @include reset-link;
+
+        p {
+            @include font-logo;
+            margin: 0;
+        }
+    }
+
+    .navigation {
+        border-top: $border--light-gray;
+
+        @include phone-portrait {
+            margin-bottom: em(20px);
+        }
+
+        .list {
+            @include horizontal-list;
+            @include container;
+            justify-content: center;
+
+            @include phone-portrait {
+                flex-wrap: wrap;
+            }
+
+            li {
+                @include phone-portrait {
+                    width: 33%;
+                    box-shadow: border-box;
+                }
+            }
+
+            li a {
+                @include reset-link;
+                @include font-navigation;
+                padding: 0 em(25px, $font-size--xs);
+                line-height: 6.65;
+                display: block;
+                transition-duration: .5s;
+
+                @include phone-portrait {
+                    text-align: center;
+                }
+
+                &:hover {
+                    background-color: $light-gray;
+                    transition-duration: .5s;
+                }
+            }
+
+            li a.disabled {
+                background-color: $light-gray;
+                cursor: default;
+            }
+            
+        }
+    }
+} 

@@ -1,10 +1,40 @@
-.btn {
+.button {
     @include reset-button;
     @include font-button;
 }
 
+.button--continue {
+    line-height: 4;
+    border: $border--gray;
+    position: relative;
+    z-index: 1;
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        width: 0;
+        z-index: -1;
+        transition-duration: .75s;
+    }
+
+    &:hover {
+
+        &:before {
+            width: 100%;
+            transition-duration: .75s;
+            transition-timing-function: ease-out;
+            transition-property: all;
+        }
+    }
+}
+
 .blog-post__link {
     @include reset-link;
+
     display: block;
     cursor: pointer;
+    
 }
