@@ -21,8 +21,7 @@
 
 body {
   font-size: 22px;
-  margin: 0;
-  overflow-x: hidden; }
+  margin: 0; }
   @media (max-width: 1599px) {
     body {
       font-size: 20px; } }
@@ -38,6 +37,15 @@ body {
   @media (max-width: 399px) {
     body {
       font-size: 10px; } }
+
+.out {
+  animation: opacity 1s ease; }
+
+@keyframes opacity {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 @font-face {
   font-family: 'Tuesday Night';

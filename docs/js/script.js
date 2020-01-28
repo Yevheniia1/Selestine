@@ -1,16 +1,8 @@
 const header = document.querySelector('main-header'),
-      logo = document.querySelector('.logo>p'),
       navigationLinks = document.querySelectorAll('.navigation>.list>li'),
       headerSlider = document.querySelector('.slider--header'),
-      latestSection = document.querySelector('.latest'),
-      latestPosts = document.querySelectorAll('.latest__list>li'),
-      videoSection = document.querySelector('.video'),
-      videoPosts = document.querySelectorAll('.video__wrapper>.blog-post'),
-      featuredSection = document.querySelector('.featured'),
-      featuredPost = document.querySelectorAll('.featured>.blog-post'),
-      popularSection = document.querySelector('.popular'),
-      popularPosts = document.querySelectorAll('.popular__list>li');
-
+      page = document.querySelector('body');
+     
 function scaling(elements) {
   return  gsap.from(elements, {
     scale: 0,
@@ -20,41 +12,28 @@ function scaling(elements) {
   });
 }
 
-function moveLeft(elements) {
-  return gsap.from(elements, {
-    x: "500",
-    duration: 1,
-    ease: "power1.out",
-    opacity: 0,
-    stagger: .1
-  })
-}
-
-function moveRight(elements) {
-  return gsap.from(elements, {
-    x: "-500",
-    duration: 1,
-    ease: "power1.out",
-    opacity: 0,
-    stagger: .1
-  })
-}
-
 function moveUp(elements) {
   return gsap.from(elements, {
     y: "500",
-    duration: 1,
     ease: "power1.out",
     opacity: 0,
     stagger: .1
   })
 }
 
+let emergence = gsap.from('body', {
+  opacity: 0,
+  ease: "power1.out",
+  duration: 2,
+})
+
+// Анимации появления на странице блоков
 let controller = new ScrollMagic.Controller();
 
 let headerAnimation = gsap.timeline()
-.add(moveLeft(navigationLinks))
-.add(scaling(headerSlider));
+  .add(emergence, -1)
+  .add(moveUp(navigationLinks))
+  .add(moveUp(headerSlider));
 
 let headerScene = new ScrollMagic.Scene({
   triggerElement: header,
@@ -64,47 +43,23 @@ let headerScene = new ScrollMagic.Scene({
   .setTween(headerAnimation)
   .addTo(controller);
 
-let latestAnimation = gsap.timeline()
-.add(moveUp(latestPosts));
 
-let latestsScene = new ScrollMagic.Scene({
-  triggerElement: latestSection,
-  triggerHook: .8,
-  reverse: false,
-})
-  .setTween(latestAnimation)
-  .addTo(controller);
+//Переход между страницами
 
-let videoAnimation = gsap.timeline()
-.add(moveLeft(videoPosts));
+page.addEventListener('click', handleClick)
 
-let videoScene = new ScrollMagic.Scene({
-  triggerElement: videoSection,
-  triggerHook: .8,
-  reverse: false,
-})
-  .setTween(videoAnimation)
-  .addTo(controller);
+function handleClick(event) {
+  let target = event.target;
+  if(target.tagName !== 'BUTTON'){
+    try {
+      event.preventDefault();
+      document.body.classList.add('out');
+      let link = target.closest('[href]').getAttribute('href');
+      setTimeout(() => window.location.href = link, 900)
+    } catch(err) {
+      throw err
+    }
+  }
+}
 
-let featuredAnimation = gsap.timeline()
-  .add(scaling(featuredPost));
-
-let featuredScene = new ScrollMagic.Scene({
-  triggerElement: featuredSection,
-  triggerHook: .8,
-  reverse: false,
-})
-  .setTween(featuredAnimation)
-  .addTo(controller);
-
-let popularAnimation = gsap.timeline()
-  .add(moveUp(popularPosts));
-
-let popularScene = new ScrollMagic.Scene({
-  triggerElement: popularSection,
-  triggerHook: .8,
-  reverse: false,
-})
-  .setTween(popularAnimation)
-  .addTo(controller);
-  
+export {moveUp, scaling}

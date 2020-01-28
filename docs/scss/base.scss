@@ -1,7 +1,6 @@
 body {
-    font-size: $font-size--base;
+    font-size: $font-size--s;
 	margin: 0;
-	overflow-x: hidden;
 
     @include desktop {
 		font-size: 20px;
@@ -24,5 +23,17 @@ body {
 	}
 }
 
+.out {
+	animation: opacity 1s ease;
+}
 
 
+
+@keyframes opacity{
+	0%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
+}
