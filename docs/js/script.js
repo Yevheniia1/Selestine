@@ -21,28 +21,31 @@ function moveUp(elements) {
   })
 }
 
-let emergence = gsap.from('body', {
-  opacity: 0,
-  ease: "power1.out",
-  duration: 2,
-})
 
 // Анимации появления на странице блоков
 let controller = new ScrollMagic.Controller();
 
+
 let headerAnimation = gsap.timeline()
-  .add(emergence, -1)
+  // .add(emergence, -1)
   .add(moveUp(navigationLinks))
   .add(moveUp(headerSlider));
 
-let headerScene = new ScrollMagic.Scene({
-  triggerElement: header,
-  triggerHook: 0,
-  reverse: false,
-})
-  .setTween(headerAnimation)
-  .addTo(controller);
 
+window.addEventListener('load', function() {
+
+  setTimeout(function() {
+    let headerScene = new ScrollMagic.Scene({
+      triggerElement: header,
+      triggerHook: 0,
+      reverse: false,
+    })
+      .setTween(headerAnimation)
+      .addTo(controller);  
+    
+  }, 1200)
+  
+})
 
 //Переход между страницами
 

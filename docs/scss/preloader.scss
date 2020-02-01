@@ -1,0 +1,31 @@
+.preloader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: $white;
+    z-index: 10000;
+
+    p {
+        @include font-title($font-size--xs);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        color: $black;
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 100vh;
+        letter-spacing: 4px;
+        }
+}
+
+.preloader circle{
+    stroke-dashoffset: 0;
+    fill: none;
+    stroke-linecap: round;
+}
