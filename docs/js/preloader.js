@@ -1,4 +1,5 @@
-const proloaderElements = document.querySelectorAll('.preloader>g>circle');
+const proloaderElements = document.querySelectorAll('.preloader>g>circle'),
+      preloaderDuration = 1500;
 
 gsap.to(proloaderElements, {
   duration: 1.5,
@@ -13,6 +14,7 @@ window.addEventListener('load', function() {
   setTimeout(function() {
     document.body.style.overflow = "auto";
     document.querySelector('.preloader-container').style.display = 'none';
-  }, 1500)
- 
+  }, preloaderDuration)
 })
+
+export {preloaderDuration}

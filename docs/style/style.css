@@ -22,7 +22,6 @@
 body {
   font-size: 22px;
   margin: 0;
-  will-change: opacity;
   overflow: hidden; }
   @media (max-width: 1599px) {
     body {
@@ -40,28 +39,18 @@ body {
     body {
       font-size: 10px; } }
 
-.out {
-  animation: opacity 1s ease; }
-
-.in {
-  animation: opacity 1s ease;
-  animation-fill-mode: forwards; }
-
-@keyframes opacity {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
 .preloader-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   margin: 0;
   height: 100vh;
   width: 100vw;
-  box-sizing: border-box;
   background-color: #ffffff;
   z-index: 10000; }
   .preloader-container p {
@@ -78,6 +67,9 @@ body {
     text-transform: uppercase;
     line-height: 100vh;
     letter-spacing: 4px; }
+    @media (max-width: 899px) {
+      .preloader-container p {
+        font-size: 22px; } }
 
 .preloader circle {
   stroke-dashoffset: 0;
@@ -1058,13 +1050,14 @@ body {
 
 .main-header .logo {
   color: #000000;
-  text-decoration: none; }
-  .main-header .logo p {
-    font-family: "Tuesday Night", serif;
-    font-size: 4.54545em;
-    color: #000000;
-    text-align: center;
-    margin: 0; }
+  text-decoration: none;
+  font-family: "Tuesday Night", serif;
+  font-size: 4.54545em;
+  color: #000000;
+  text-align: center;
+  margin: 0;
+  display: block;
+  text-align: center; }
 
 .main-header .navigation {
   border-top: 1px solid #f3f3f3; }

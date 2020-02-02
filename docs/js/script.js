@@ -1,68 +1,64 @@
-const header = document.querySelector('main-header'),
-      navigationLinks = document.querySelectorAll('.navigation>.list>li'),
-      headerSlider = document.querySelector('.slider--header'),
-      page = document.querySelector('body');
+import {preloaderDuration} from './preloader.js';
+
+const navigationLinks = document.querySelectorAll('.navigation>.list>li'),
+      animationDelay = preloaderDuration - 300,
+      animationDuration = 1;
      
 function scaling(elements) {
   return  gsap.from(elements, {
     scale: 0,
     opacity: 0,
     ease: "power2.out",
-    duration: 1,
+    duration: animationDuration,
+    stagger: .1
   });
 }
 
 function moveUp(elements) {
   return gsap.from(elements, {
     y: "500",
-    ease: "power1.out",
+    ease: "power2.out",
     opacity: 0,
+    duration: animationDuration*2,
     stagger: .1
   })
 }
 
-
-// Анимации появления на странице блоков
-let controller = new ScrollMagic.Controller();
-
-
-let headerAnimation = gsap.timeline()
-  // .add(emergence, -1)
-  .add(moveUp(navigationLinks))
-  .add(moveUp(headerSlider));
-
+function removeOpacity(elements) {
+  return gsap.fromTo(elements, {
+    opacity: 1,
+  }, {
+    ease: "power2.out",
+    opacity: 0,
+    duration: animationDuration,
+  })
+}
 
 window.addEventListener('load', function() {
-
   setTimeout(function() {
-    let headerScene = new ScrollMagic.Scene({
-      triggerElement: header,
-      triggerHook: 0,
-      reverse: false,
-    })
-      .setTween(headerAnimation)
-      .addTo(controller);  
-    
+    let pageAnimation = gsap.timeline()
+    .add(moveUp(navigationLinks))
   }, 1200)
   
 })
 
 //Переход между страницами
 
-page.addEventListener('click', handleClick)
+document.body.addEventListener('click', handleClick)
 
 function handleClick(event) {
   let target = event.target;
-  if(target.tagName !== 'BUTTON'){
+  if(target.tagName === 'A'){
     try {
       event.preventDefault();
-      document.body.classList.add('out');
+      removeOpacity(document.body);
       let link = target.closest('[href]').getAttribute('href');
-      setTimeout(() => window.location.href = link, 900)
+      setTimeout(() => window.location.href = link, animationDuration*1000 - 100)
     } catch(err) {
       throw err
     }
   }
+  return
 }
 
-export {moveUp, scaling}
+export {moveUp, scaling, animationDelay}

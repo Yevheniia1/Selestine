@@ -6,11 +6,10 @@
 
     .logo {
         @include reset-link;
-
-        p {
-            @include font-logo;
-            margin: 0;
-        }
+        @include font-logo;
+        margin: 0;
+        display: block;
+        text-align: center;
     }
 
     .navigation {

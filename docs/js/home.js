@@ -1,6 +1,9 @@
-import {moveUp, scaling} from './script.js';
+import {moveUp, scaling, animationDelay} from './script.js';
 
-const   latestSection = document.querySelector('.latest'),
+const   header = document.querySelector('main-header'),
+        headerSlider = document.querySelector('.slider--header'), 
+        headerSliderElements = [],  
+        latestSection = document.querySelector('.latest'),
         latestPosts = document.querySelectorAll('.latest__list>li>.blog-post'),
         videoSection = document.querySelector('.video'),
         videoPosts = document.querySelectorAll('.video__wrapper>.blog-post'),
@@ -8,6 +11,20 @@ const   latestSection = document.querySelector('.latest'),
         featuredPost = document.querySelectorAll('.featured>.blog-post'),
         popularSection = document.querySelector('.popular'),
         popularPosts = document.querySelectorAll('.popular__list>li>.blog-post');
+
+function setHeaderSliderElements() {
+    headerSliderElements.push(headerSlider.querySelector('article').children);
+    headerSliderElements.push(headerSlider.querySelectorAll('button'));
+    headerSliderElements.push(headerSlider.querySelectorAll('ol'));
+    return headerSliderElements;
+}
+
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        let headerSliderAniamtion = gsap.timeline()
+        .add(scaling(setHeaderSliderElements()))
+    }, animationDelay)
+})
 
 let controller = new ScrollMagic.Controller();
 
