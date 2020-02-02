@@ -1094,7 +1094,8 @@ body {
       padding: 0 2.08333em;
       line-height: 6.65;
       display: block;
-      transition-duration: .5s; }
+      transition-duration: .5s;
+      cursor: pointer; }
       @media (max-width: 399px) {
         .main-header .navigation .list li a {
           font-size: 1em; } }

@@ -48,12 +48,17 @@ document.body.addEventListener('click', handleClick)
 
 function handleClick(event) {
   let target = event.target;
-  if(target.tagName === 'A'){
+  if(target.tagName === 'A'||target.classList.contains('title--link')){
     try {
       event.preventDefault();
-      removeOpacity(document.body);
       let link = target.closest('[href]').getAttribute('href');
-      setTimeout(() => window.location.href = link, animationDuration*1000 - 100)
+
+      if(link !== '#') {
+        removeOpacity(document.body);
+        setTimeout(() => window.location.href = link, animationDuration*1000 - 100);
+        return
+      }
+      alert('Sorry, page not found')
     } catch(err) {
       throw err
     }

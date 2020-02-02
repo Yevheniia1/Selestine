@@ -42,6 +42,7 @@
                 line-height: 6.65;
                 display: block;
                 transition-duration: .5s;
+                cursor: pointer;
 
                 @include phone-portrait {
                     text-align: center;

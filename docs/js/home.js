@@ -17,7 +17,7 @@ function setHeaderSliderElements() {
     headerSliderElements.push(headerSlider.querySelectorAll('button'));
     headerSliderElements.push(headerSlider.querySelectorAll('ol'));
     return headerSliderElements;
-}
+}  
 
 window.addEventListener('load', function() {
     setTimeout(function() {
