@@ -94,17 +94,17 @@
 
 //Media Queries
 @mixin phone-portrait {
-    @media (max-width: 399px) { @content; }
+    @media screen and (max-width: 399px) { @content; }
   }
 @mixin phone-landscape{
-    @media (max-width: 699px) { @content; }
+    @media screen and (max-width: 699px) { @content; }
   }
 @mixin tablet-portrait {
-    @media (max-width: 899px) { @content; }
+    @media screen and (max-width: 899px) { @content; }
 }
 @mixin tablet-landscape {
-    @media (max-width: 1199px) { @content; }
+    @media screen and (max-width: 1199px) { @content; }
 }
 @mixin desktop {
-    @media (max-width: 1599px) { @content; }
+    @media screen and (max-width: 1599px) { @content; }
 }

@@ -10,7 +10,7 @@ gulp.task('default', function() {
 	 livereload:true,
 	 directoryListing:{
 		 enable:true,
-		 path:'app'
+		 path:'docs'
 	 },
 	 open:false,
  }));
