@@ -32,7 +32,7 @@ $slider-control-btn-size: 4.6em;
     }
 
     .blog-post {
-    width: 100%;
+        width: 100%;
 
         .content {
 
@@ -222,7 +222,7 @@ $slider-control-btn-size: 4.6em;
             
             position: absolute;
             bottom: 0;
-            left: 48.7%;
+            left: 48.6%;
             z-index: 10;
 
             background-color: $white;
@@ -239,7 +239,7 @@ $slider-control-btn-size: 4.6em;
 
     .flickity-prev-next-button {
         bottom: 0;
-        left: 48.7%;
+        left: 48.6%;
         right: auto;
         z-index: 100;
 
@@ -257,6 +257,7 @@ $slider-control-btn-size: 4.6em;
         padding-top: em(100px);
         height: 100%;
 
+
         .blog-post {
             display: flex;
         
@@ -264,6 +265,8 @@ $slider-control-btn-size: 4.6em;
 
             .content {
                 padding: 0 em(20px) $slider-control-btn-size + 1em;
+                @include size(48.6%, auto);
+
 
                 display: flex;
                 flex-direction: column;
@@ -313,7 +316,8 @@ $slider-control-btn-size: 4.6em;
             }
     
            img {
-               @include size(48.7%, auto);
+               @include size(48.6%, auto);
+               flex-shrink: 0;
            }
         }
     }
